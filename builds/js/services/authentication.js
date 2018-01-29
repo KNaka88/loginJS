@@ -21,7 +21,7 @@ myApp.factory('Authentication',
     login: function(user) {
       auth.$signInWithEmailAndPassword(user.email, user.password)
         .then(function(user) {
-          $location.path('/success')
+          $location.path('/meetings')
         }).catch(function(error) {
           $rootScope.message = error.message;
         });

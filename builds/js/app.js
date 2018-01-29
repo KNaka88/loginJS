@@ -19,9 +19,17 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/register.html',
       controller: 'RegistrationController'
     }).
-    when('/success', {
-      templateUrl: 'views/success.html',
-      controller: 'SuccessController',
+    when('/checkins/:uId/:mId', {
+      templateUrl: 'views/checkins.html',
+      controller: 'CheckInsController',
+    }).
+    when('/checkins/:uId/:mId/checkinsList', {
+      templateUrl: 'views/checkinslist.html',
+      controller: 'CheckInsController',
+    }).
+    when('/meetings', {
+      templateUrl: 'views/meetings.html',
+      controller: 'MeetingsController',
       resolve: {
         currentAuth: function(Authentication) {
           return Authentication.requireAuth();
@@ -29,6 +37,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
       }
     }).
     otherwise({
-      redirectTo: '/login'
+      redirectTo: '/meetings'
     });
 }]);
